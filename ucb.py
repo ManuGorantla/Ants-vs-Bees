@@ -1,5 +1,3 @@
-"""The UCB module contains functions specific to 61A projects at UC Berkeley."""
-
 import code
 import functools
 import inspect
@@ -13,11 +11,6 @@ def main(fn):
 
     The main decorator marks the function that starts a program. For example,
 
-    @main
-    def my_run_function():
-        # function body
-
-    Use this instead of the typical __name__ == "__main__" predicate.
     """
     if inspect.stack()[1][0].f_locals['__name__'] == '__main__':
         args = sys.argv[1:] # Discard the script name from command line
@@ -67,11 +60,7 @@ def log_current_line():
 def interact(msg=None):
     """Start an interactive interpreter session in the current environment.
 
-    On Unix:
-      <Control>-D exits the interactive session and returns to normal execution.
-    In Windows:
-      <Control>-Z <Enter> exits the interactive session and returns to normal
-      execution.
+
     """
     # evaluate commands in current namespace
     frame = inspect.currentframe().f_back
