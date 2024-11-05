@@ -1,5 +1,5 @@
 import sys
-sys.path.append('libs') # Include files in the "libs" folder
+sys.path.append('libs') 
 
 
 from flask import Flask, render_template, request, jsonify
@@ -130,7 +130,6 @@ def move_bee(bee, place):
     data = {
         'bee_id': bee.id,
 
-        # Not a good way to get the position. Changes should be made to Place class in ants.py
         'destination': place.name.split('_')[1:], # [x, y] where x is row, y is col
         'current_pos': bee.place.name.split('_')[1:],
     }
@@ -143,7 +142,6 @@ def move_bee_from_hive(bee, place):
         'bee_id': bee.id,
         'bee_name': bee.name,
 
-        # Not a good way to get the position. Changes should be made to Place class in ants.py
         'destination': place.name.split('_')[1:] # [x, y] where x is row, y is col
     }
     socketio.emit('moveBeeFromHive', data)
